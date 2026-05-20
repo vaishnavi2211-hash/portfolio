@@ -598,20 +598,18 @@ window.addEventListener('load', () => {
   }, 50);
 });
 
-// Modal click handler for the nav-brand logo
-const navBrand = document.querySelector('.nav-brand');
-if (navBrand) {
-  navBrand.addEventListener('click', (e) => {
-    e.preventDefault();
-    
+// Modal click handler for the hero avatar profile photo
+const heroAvatar = document.querySelector('.hero-avatar');
+if (heroAvatar) {
+  heroAvatar.addEventListener('click', () => {
     modalTitle.innerText = "Developer Profile Card";
     modalBody.innerHTML = `
       <div class="developer-profile-modal" style="text-align: center; padding: 1.5rem 0;">
-        <div class="modal-avatar" style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(79,142,247,0.35); background: var(--bg3);">
+        <div class="modal-avatar" style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent2); box-shadow: 0 0 20px rgba(0, 225, 217, 0.35); background: var(--bg3);">
           <img src="./assets/profile.jpg" alt="Vaishnavi" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <h2 style="font-family: var(--font-serif); font-size: 24px; color: var(--text); margin-bottom: 0.5rem; font-weight:500;">Durga Vaishnavi Seshapu</h2>
-        <p style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.08em;">Frontend &middot; Full Stack &middot; AI Integration</p>
+        <p style="font-family: var(--font-mono); font-size: 12px; color: var(--accent2); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.08em;">Frontend &middot; Full Stack &middot; AI Integration</p>
         
         <p style="font-size: 15px; color: var(--text-2); max-width: 460px; margin: 0 auto 2rem auto; line-height: 1.6;">
           "Passionate about building responsive, high-performance web applications, integrating conversational AI models, and deriving key insights through interactive data dashboards."
@@ -633,3 +631,27 @@ if (navBrand) {
     document.body.style.overflow = 'hidden';
   });
 }
+
+// Copy Email Clipboard Handler
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const email = btn.getAttribute('data-email');
+    navigator.clipboard.writeText(email).then(() => {
+      const btnText = btn.querySelector('.btn-text');
+      const originalText = btnText.innerText;
+      btnText.innerText = 'Copied!';
+      btn.style.borderColor = 'var(--accent2)';
+      btn.style.color = 'var(--text)';
+      btn.style.background = 'rgba(0, 225, 217, 0.1)';
+      setTimeout(() => {
+        btnText.innerText = originalText;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+        btn.style.background = '';
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  });
+});
+
