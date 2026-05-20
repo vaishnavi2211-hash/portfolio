@@ -1267,12 +1267,24 @@
       scroll-snap-stop: always;
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
       box-sizing: border-box;
+      position: relative;
+    }
+    section > .container {
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-top: 80px;
+      padding-bottom: 60px;
     }
     #hero {
       height: 100vh;
+    }
+    #hero > .container {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 </style>
@@ -1593,7 +1605,7 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" style="padding-top: 0;">
+<section id="skills">
   <div class="container fade-up">
     <p class="section-label">Capabilities & Stack</p>
     <h2 class="section-title">Technical Competency</h2>
