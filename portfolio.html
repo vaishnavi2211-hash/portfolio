@@ -313,7 +313,7 @@
   .about-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 3.5rem;
+    gap: 5rem;
     align-items: center;
   }
   .about-text p {
@@ -418,8 +418,8 @@
     border-left: 3px solid var(--accent);
     cursor: pointer;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    width: 420px;
-    max-width: 100%;
+    width: 84%;
+    max-width: 420px;
   }
   .about-card.education-card:hover {
     border-color: var(--accent2);
@@ -428,8 +428,8 @@
   }
   .about-card.focus-card {
     border-left: 3px solid var(--accent2);
-    width: 480px;
-    max-width: 100%;
+    width: 92%;
+    max-width: 480px;
   }
   .about-card.focus-card:hover {
     border-color: var(--accent2);
@@ -437,8 +437,8 @@
   }
   .about-card.currently-card {
     border-left: 3px solid var(--accent3);
-    width: 540px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 540px;
   }
   .about-card.currently-card:hover {
     border-color: var(--accent3);
@@ -1047,6 +1047,33 @@
   .resume-text p { color: var(--text-2); font-size: 14px; }
 
   /* ── CONTACT ── */
+  #contact {
+    padding-bottom: 0 !important;
+  }
+  #contact footer {
+    width: 100%;
+    margin-top: auto;
+  }
+  @media (min-width: 769px) {
+    #contact {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    #contact .container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #contact .contact-inner {
+      width: 100%;
+    }
+  }
+
   .contact-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1256,6 +1283,7 @@
 <!-- NAV -->
 <nav>
   <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
     <li><a href="#about">Bio</a></li>
     <li><a href="#projects">Creations</a></li>
     <li><a href="#experience">Milestones</a></li>
@@ -1816,13 +1844,13 @@
       </div>
     </div>
   </div>
+  
+  <footer>
+    <div class="container">
+      <p>© 2026 Durga Seshapu &middot; Built with Passion</p>
+    </div>
+  </footer>
 </section>
-
-<footer>
-  <div class="container">
-    <p>© 2026 Durga Seshapu &middot; Built with Passion</p>
-  </div>
-</footer>
 
 <!-- CERTIFICATE MODAL -->
 <div id="certModal" class="modal-overlay">
