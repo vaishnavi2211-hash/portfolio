@@ -222,7 +222,7 @@ const internshipDetails = {
       'Identified trends in electricity consumption patterns and presented findings.'
     ],
     tech: ['Tableau', 'SQL', 'Python', 'Data Analytics'],
-    certificate: 'https://drive.google.com/file/d/121gHcHhmnJIloeBmTFbgRuCK2JnFzlOV/view?usp=sharing'
+    certificate: 'https://drive.google.com/file/d/1t7C4HkR6vOOYJbCmWDWE1M9ek6NjNdAX/view?usp=sharing'
   }
 };
 

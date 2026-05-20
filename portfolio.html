@@ -115,7 +115,7 @@
     transform: translateY(-50%);
     width: 600px;
     height: 600px;
-    opacity: 0.12;
+    opacity: 0.06;
     pointer-events: none;
     z-index: 0;
     filter: blur(2px);
@@ -188,24 +188,24 @@
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--accent);
-    color: #fff;
+    background: linear-gradient(135deg, var(--accent2), #00b0ff);
+    color: #040814;
     border: none;
     border-radius: var(--radius-sm);
     padding: 10px 22px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: var(--font);
     cursor: pointer;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 6px;
-    transition: opacity 0.2s, transform 0.15s;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s, background 0.2s;
   }
-  .btn-primary:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(79,142,247,0.35); }
+  .btn-primary:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0, 225, 217, 0.4); }
   .btn-ghost {
     background: transparent;
     color: var(--text-2);
-    border: 1px solid var(--border-md);
+    border: 1px solid rgba(0, 225, 217, 0.25);
     border-radius: var(--radius-sm);
     padding: 10px 22px;
     font-size: 14px;
@@ -214,9 +214,9 @@
     cursor: pointer;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 6px;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .btn-ghost:hover { border-color: var(--text-2); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent2); color: var(--text); background: rgba(0, 225, 217, 0.05); }
 
   .hero-avatar {
     width: 160px;
@@ -415,10 +415,13 @@
   }
   .about-card.education-card {
     border-left: 3px solid var(--accent);
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
   .about-card.education-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+    border-color: var(--accent2);
+    box-shadow: 0 8px 30px rgba(0, 225, 217, 0.25);
+    transform: translateY(-4px) translateX(4px);
   }
   .about-card.focus-card {
     border-left: 3px solid var(--accent2);
@@ -592,10 +595,10 @@
     background: rgba(255, 255, 255, 0.05);
   }
   .filter-btn.active {
-    background: rgba(79, 142, 247, 0.1);
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 10px rgba(79, 142, 247, 0.2);
+    background: rgba(0, 225, 217, 0.1);
+    border-color: var(--accent2);
+    color: var(--accent2);
+    box-shadow: 0 0 10px rgba(0, 225, 217, 0.2);
   }
 
   /* ── PROJECTS VERTICAL GRID LAYOUT ── */
@@ -1071,12 +1074,46 @@
 
   /* ── FOOTER ── */
   footer {
-    padding: 2rem;
-    text-align: center;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--border);
-    font-family: var(--font-mono);
-    font-size: 12px;
+    font-family: var(--font);
+    font-size: 13.5px;
     color: var(--text-3);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-left p {
+    color: var(--text-2);
+    margin: 0;
+  }
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-2);
+    transition: color 0.3s;
+  }
+  .footer-right:hover {
+    color: var(--accent2);
+  }
+  .footer-right svg {
+    color: var(--accent2);
+    transition: transform 0.3s;
+  }
+  .footer-right:hover svg {
+    transform: scale(1.1) translateY(-1px);
+  }
+  @media (max-width: 600px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+    }
   }
 
   /* ── ANIMATIONS & MODAL ── */
@@ -1789,7 +1826,18 @@
 </section>
 
 <footer>
-  <p>Durga Vaishnavi Seshapu &nbsp;·&nbsp; Narsapur, Andhra Pradesh &nbsp;·&nbsp; 2026</p>
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <p>© 2026 Durga Vaishnavi Seshapu &middot; Built with Passion</p>
+    </div>
+    <div class="footer-right">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Narsapur, Andhra Pradesh, India</span>
+    </div>
+  </div>
 </footer>
 
 <!-- CERTIFICATE MODAL -->
@@ -2050,7 +2098,7 @@
         'Identified trends in electricity consumption patterns and presented findings.'
       ],
       tech: ['Tableau', 'SQL', 'Python', 'Data Analytics'],
-      certificate: 'https://drive.google.com/file/d/121gHcHhmnJIloeBmTFbgRuCK2JnFzlOV/view?usp=sharing'
+      certificate: 'https://drive.google.com/file/d/1t7C4HkR6vOOYJbCmWDWE1M9ek6NjNdAX/view?usp=sharing'
     }
   };
 
@@ -2100,6 +2148,66 @@
       document.body.style.overflow = 'hidden';
     });
   });
+
+  // Click handler for Education card to show detailed academic timeline
+  const eduCard = document.querySelector('.about-card.education-card');
+  if (eduCard) {
+    eduCard.addEventListener('click', () => {
+      modalTitle.innerText = 'Academic Journey';
+      modalBody.innerHTML = `
+        <div class="modal-education-timeline" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem; text-align: left;">
+          
+          <!-- B.Tech -->
+          <div class="edu-timeline-item" style="border-left: 2px solid var(--accent2); padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent2); position: absolute; left: -6px; top: 6px; box-shadow: 0 0 8px var(--accent2);"></div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent2); text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.05em;">Sept/2023 - July/2027</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); font-weight: 500; margin-bottom: 4px;">Pursuing Bachelor of Technology</h4>
+            <div style="font-size: 13.5px; color: var(--accent); margin-bottom: 6px; font-weight: 500;">Swarnandhra College of Engineering and Technology</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+              <li style="font-size: 13.5px; color: var(--text-2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--accent2);">✦</span> <strong>CGPA:</strong> 8.87
+              </li>
+              <li style="font-size: 13.5px; color: var(--text-2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--accent2);">✦</span> <strong>Course Work:</strong> Computer Science and Engineering
+              </li>
+            </ul>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="edu-timeline-item" style="border-left: 2px solid var(--accent); padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent); position: absolute; left: -6px; top: 6px; box-shadow: 0 0 8px var(--accent);"></div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent); text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.05em;">June/2021 - April/2023</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); font-weight: 500; margin-bottom: 4px;">Board of Intermediate Education Andhra Pradesh</h4>
+            <div style="font-size: 13.5px; color: var(--accent2); margin-bottom: 6px; font-weight: 500;">Sri Surya Junior College</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+              <li style="font-size: 13.5px; color: var(--text-2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--accent);">✦</span> <strong>CGPA:</strong> 8.74
+              </li>
+              <li style="font-size: 13.5px; color: var(--text-2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--accent);">✦</span> <strong>Course Work:</strong> MPC (Maths, Physics, Chemistry)
+              </li>
+            </ul>
+          </div>
+
+          <!-- 10th Class -->
+          <div class="edu-timeline-item" style="border-left: 2px solid var(--accent3); padding-left: 1.25rem; position: relative;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent3); position: absolute; left: -6px; top: 6px; box-shadow: 0 0 8px var(--accent3);"></div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent3); text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.05em;">March/2021</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); font-weight: 500; margin-bottom: 4px;">Board of Secondary Education Andhra Pradesh</h4>
+            <div style="font-size: 13.5px; color: var(--accent2); margin-bottom: 6px; font-weight: 500;">Narayana High School</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+              <li style="font-size: 13.5px; color: var(--text-2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--accent3);">✦</span> <strong>CGPA:</strong> 9.9
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      `;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
 
   document.querySelectorAll('.project-card').forEach(card => {
     
